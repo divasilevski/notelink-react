@@ -20,6 +20,11 @@ export const FirebaseState = ({ children }) => {
     showLoader()
     const res = await axios.get(`${url}/notes.json`)
 
+    if (!res.data) {
+      dispatch({ type: FETCH_NOTES, payload: [] })
+      return
+    }
+
     const payload = Object.keys(res.data).map(key => {
       return {
         ...res.data[key],
@@ -28,7 +33,6 @@ export const FirebaseState = ({ children }) => {
     })
 
     dispatch({ type: FETCH_NOTES, payload })
-    console.log('fetchNotes', res.data)
   }
 
   const addNote = async title => {
