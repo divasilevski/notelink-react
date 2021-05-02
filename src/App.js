@@ -8,8 +8,8 @@ import { FirebaseState } from './context/firebase/FirebaseState'
 
 function App() {
   return (
-    <FirebaseState>
-      <AlertState>
+    <AlertState>
+      <FirebaseState>
         <BrowserRouter>
           <Navbar />
           <div className="container pt-4">
@@ -20,8 +20,8 @@ function App() {
             </Switch>
           </div>
         </BrowserRouter>
-      </AlertState>
-    </FirebaseState>
+      </FirebaseState>
+    </AlertState>
   );
 }
 

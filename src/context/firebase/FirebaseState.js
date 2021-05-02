@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-import { useReducer } from "react"
+import { useContext, useReducer } from "react"
+import { AlertContext } from '../alert/alertContext'
 import { ADD_NOTE, FETCH_NOTES, REMOVE_NOTE, SHOW_LOADER } from '../types'
 import { FirebaseContext } from "./firebaseContext"
 import { firebaseReducer } from "./firebaseReducer"
@@ -8,6 +9,8 @@ import { firebaseReducer } from "./firebaseReducer"
 const url = process.env.REACT_APP_DB_URL
 
 export const FirebaseState = ({ children }) => {
+  const { show } = useContext(AlertContext)
+
   const initialState = {
     notes: [],
     loading: false
@@ -49,7 +52,6 @@ export const FirebaseState = ({ children }) => {
         type: ADD_NOTE,
         payload,
       })
-      console.log('addNode', res.data)
     } catch (e) {
       throw new Error(e.message)
     }
@@ -63,6 +65,8 @@ export const FirebaseState = ({ children }) => {
       type: REMOVE_NOTE,
       payload: id
     })
+
+    show('Заметка удалена', 'success')
   }
 
   return (

@@ -18,7 +18,7 @@ export const Form = () => {
       })
       setValue('')
     } else {
-      alert.show('Введите название заметки')
+      alert.show('Введите текст заметки')
     }
   }
 
@@ -28,7 +28,7 @@ export const Form = () => {
         <input
           type="text"
           className="form-control"
-          placeholder="Введите название заметки"
+          placeholder="Создать заметку можно тут"
           value={value}
           onChange={e => setValue(e.target.value)}
         />

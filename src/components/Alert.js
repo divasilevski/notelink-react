@@ -1,9 +1,15 @@
 import { CSSTransition } from 'react-transition-group'
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { AlertContext } from "../context/alert/alertContext"
 
 export const Alert = () => {
-  const { alert, hide } = useContext(AlertContext)
+  const { alert, hide, show } = useContext(AlertContext)
+
+  useEffect(() => {
+    const timeout = setTimeout(hide, 4000)
+    return () => clearTimeout(timeout)
+    // eslint-disable-next-line
+  }, [show])
 
   return (
     <CSSTransition

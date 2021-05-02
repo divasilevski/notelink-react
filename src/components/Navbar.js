@@ -2,9 +2,9 @@ import { NavLink } from "react-router-dom"
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-dark navbar-expand-lg bg-primary">
+    <nav className="navbar navbar-dark navbar-expand-lg bg-success">
       <div className="navbar-brand">
-        Note App
+        Notelink React
       </div>
       <ul className="navbar-nav">
         <li className="nav-item">
@@ -21,7 +21,7 @@ export const Navbar = () => {
             className="nav-link"
             to="/about"
           >
-            Информация
+            Инфо
           </NavLink>
         </li>
       </ul>
