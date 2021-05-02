@@ -1,9 +1,12 @@
-import { Fragment } from "react"
-
 export const About = () => {
-    return (
-        <Fragment>
-            <h1>About page</h1>
-        </Fragment>
-    )
+  return (
+    <div className="jumbotron jumbotron-fluid">
+      <div className="container">
+        <h1 className="display-4">Реакт приложение</h1>
+        <p className="leaf">
+          Бутстрап, роутинг, хуки и прочее... туть.
+        </p>
+      </div>
+    </div>
+  )
 }
